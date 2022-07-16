@@ -6,7 +6,7 @@ export const MenuOptions =[
     },
     {
         title:'Projects',
-        url:'/my-app/services',
+        url:'/services',
         cName: 'nav-links'
     },
     {
