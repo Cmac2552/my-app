@@ -5,7 +5,7 @@ import './Services.css'
 export default function Services() {
     return (
         <>
-            <h1 className='home'>Hello Projects</h1>
+            <h1 className='home'>Projects</h1>
 
             <p align='left' className='words'>
                 <h2 align='left'>2022</h2>
