@@ -14,7 +14,13 @@ export default function Experience() {
             technologies mentioned before as well as the Agile software process and REST architecture.  It was an incredible learning
             experience as I was able to really get the feel of what it is like to work with a team of other software engineers while
             also learning best practices from the more experienced engineers who were kind enough to help us.</p>
-        </div>
+                <br></br>
+                <br></br>
+                <h2 align = "left">Virginia Tech Bachelor of Computer Science</h2>
+                <p align =  "left">GPA: 3.77</p>
+                <p align = "left">*In Progress (Currently a rising senior, Graduation Expected December 2022)*</p>
+
+            </div>
         </>
     )
 }
