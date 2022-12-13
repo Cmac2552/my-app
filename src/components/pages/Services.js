@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import './Services.css'
 
-export default function Services() {
+export default function Services(props) {
     return (
         <>
             <h1 className='home'>Projects</h1>
