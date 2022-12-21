@@ -5,6 +5,7 @@ import Projects from './components/pages/Projects'
 import Experience from './components/pages/Experience'
 import './App.css';
 import Contact from "./components/pages/Contact";
+import React, {useState}from 'react';
 function App() {
     const data = [{year:2022, title:"Online Betting Service",Info:"*No actual betting, it was all fake*This was a full stack web app written with MongoDB, Express, Angular, and NodeJS. It allowed users to sign up for the website and deposit (fake) money into their accounts, they were then able to bet on the outcome of  a previously selected slate of games, they could bet on anything from moneyline to the spread of these games. After the games have been deemed to be over their accounts would correctly show the amount they won or lost and they could see how they stacked up to all the others who were a part of the site as well."},
     {year:2022, title:"Sozin",Info:"In Progress"},{year:2021, title:"Binary Search Tree",Info:"This was a Binary Search Tree written in C. In doing this I learned about wrapping data using structs and recursion in C. There were also other things including memory allocation and pointers, but they were not the main focus."},
@@ -16,6 +17,17 @@ function App() {
     {year:2021,title:"Social Sanitization", Info:"This was a project for my Comparative Languages class. This project used Scala, C++, and Prolog. Scala created a prolog knowledge base from given csv files containing social media posts. C++ then called queries from a statically created Prolog file to determine the social posts to be removed. The static Prolog file analyzed the dynamically created one and relayed the queried info back to C++ which passed the results back to Scala to be output to a csv file."},
     {year:2020,title:"Space Colonies", Info:"This project was written in Java and  was a project that relied heavily on objects and ability to leverage them in different classes. The main idea was that there was a set of colonies that could accept or reject a person based on their skills. We created a circle arrayQueue to house people that we read in from an input to the project and then had an algorithm to determine whether a person was fit to be accepted into that colony that they were trying to join."},
     {year:2020,title:"HashTable", Info:"This project was written in C and had the main focus on the ideas of a hashTable, pointers, and memory allocation. We had to create a table that we would hash the entries, assign a pointer to it and a pointer from it, and then if that value was ever removed from the table, we had to clean up those pointers and deallocate the memory that was used to store that object."}]
+    let stateArray = []
+    for(let i =0; i < data.length; i++){
+        stateArray.push(false)
+    }
+    const [expanded, setExpanded] = useState(stateArray);
+    const handleExpanded =(index) =>{
+        let temp = [...expanded];
+        temp[index] = !expanded[index];
+        setExpanded(temp)
+        
+    }
     return (
         <div className="App">
             <Router>
@@ -23,7 +35,7 @@ function App() {
                 <Routes>
                     <Route path='/' exact element={<Home />} />
                     <Route path='/my-app' exact element={<Home />} />
-                    <Route path='/projects' element={<Projects data = {data} />} />
+                    <Route path='/projects' element={<Projects data = {data} expanded = {expanded} handleExpanded = {handleExpanded} />} />
                     <Route path='/experience' element={<Experience />} />
                     <Route path='/contact' element={<Contact />} />
                 </Routes>

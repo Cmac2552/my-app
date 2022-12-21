@@ -1,6 +1,8 @@
 import React from 'react';
-import { CardContent, Card, CardHeader, Box } from '@mui/material';
-
+import { CardContent, Card, CardHeader, Box, CardActions, Collapse } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 
 const gridContainer = {
     display: "grid",
@@ -18,17 +20,46 @@ const cardItem={
 const cardHeader ={
     textAlign: "left",
 }
+
+const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: '50%',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
 export default function Projects(props) {
+
+    const handleExpandClick= (index) => {
+        props.handleExpanded(index);
+    }
     return (
         <>
+            <h1>Projects</h1>
             <Box sx={gridContainer}>
                 {props.data.map((item, index)=>(
                     <Box sx = {gridItem} key = {index}>
                          <Card sx = {cardItem}>
                             <CardHeader sx={cardHeader} title = {item.title} subheader ={item.year}/>
-                            <CardContent>
-                                {item.Info}
-                            </CardContent>
+                            <Collapse in={props.expanded[index]} timeout="auto" unmountOnExit
+                            >
+                                <CardContent>
+                                    {item.Info}
+                                </CardContent>
+                            </Collapse>
+                            <CardActions>
+                                <ExpandMore
+                                expand = {props.expanded[index]}
+                                onClick = {() => handleExpandClick(index)}
+                                >
+                                    <ExpandMoreIcon />
+
+                                </ExpandMore>
+
+                            </CardActions>
                         </Card>
                     </Box>
 
