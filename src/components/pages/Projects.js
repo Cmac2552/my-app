@@ -43,7 +43,11 @@ export default function Projects(props) {
                 {props.data.map((item, index)=>(
                     <Box sx = {gridItem} key = {index}>
                          <Card sx = {cardItem}>
-                            <CardHeader sx={cardHeader} title = {item.title} subheader ={item.year}/>
+                            <CardHeader sx={cardHeader} title = {item.title}/>
+                            <CardContent>
+                                <p align="left">Year: {item.year}</p>
+                                <p align="left">Stack: {item.stack}</p>
+                            </CardContent>
                             <Collapse in={props.expanded[index]} timeout="auto" unmountOnExit
                             >
                                 <CardContent>
