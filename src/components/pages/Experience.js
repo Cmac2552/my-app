@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import { CardContent, Card, CardHeader, Box, CardActions, Collapse } from '@mui/material';
+import { CardContent, Card, Box} from '@mui/material';
 import './Experience.css';
 const gridContainer = {
     display: "grid",

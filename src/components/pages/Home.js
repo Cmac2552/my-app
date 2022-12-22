@@ -29,7 +29,7 @@ export default function Home() {
 
                 </Box>
                 <Box sx = {gridItem}>
-                    <img class = "face" src = {profile_pic}></img>
+                    <img class = "face" src = {profile_pic} alt="my face"></img>
 
                 </Box>
             </Box>
