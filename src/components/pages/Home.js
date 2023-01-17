@@ -2,7 +2,8 @@ import React from 'react';
 import '../../App.css'
 import profile_pic from '../../assets/MacMaster_Colin.jpeg'
 import "./Home.css"
-import { Box} from '@mui/material';
+import { Box} from '@mui/material'
+import Projects from './Projects';
 
 const gridContainer = {
     display: "grid",
@@ -17,19 +18,22 @@ const gridItem = {
     
   };
 
-export default function Home() {
+export default function Home(props) {
     return (
         <>
             <Box sx={gridContainer}>
                 <Box sx = {gridItem}>
                     
-                <h2 className = "words">My name is Colin MacMaster and I am currently a rising senior at Virginia Tech and
-            Software Engineering Intern at BTI360. Clicking on the tabs at the top will take you to my projects,
+                <h2 className = "words">My name is Colin MacMaster and I am currently a Software Engineer for BTI360. Clicking on the tabs at the top will take you to my projects,
             experience, and how to contact me.</h2>
+            <Box className="latestProject">
+                <Projects data = {props.data}  expanded = {props.expanded} handleExpanded = {props.handleExpanded}/>
+            </Box>
+            
 
                 </Box>
                 <Box sx = {gridItem}>
-                    <img class = "face" src = {profile_pic} alt="my face"></img>
+                    <img className = "face" src = {profile_pic} alt="my face"></img>
 
                 </Box>
             </Box>

@@ -8,6 +8,10 @@ const gridContainer = {
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)"
 };
+const gridContainer1 = {
+    display: "grid",
+    
+};
 const gridItem = {
     marginBottom: "20px",
     margin: "8px"
@@ -38,8 +42,9 @@ export default function Projects(props) {
     }
     return (
         <>
-            <h1>Projects</h1>
-            <Box sx={gridContainer}>
+            
+            <h1>{props.data.length === 1 ?"Latest Project": "Projects"}</h1>
+            <Box sx={props.data.length === 1 ? gridContainer1 : gridContainer}>
                 {props.data.map((item, index)=>(
                     <Box sx = {gridItem} key = {index}>
                          <Card sx = {cardItem}>
